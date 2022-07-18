@@ -45,7 +45,7 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","Solution Overview"]
+    page_options = ["Recommender System","About Us", "Information", "Contact Us"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -100,9 +100,15 @@ def main():
     # -------------------------------------------------------------------
 
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
-    if page_selection == "Solution Overview":
-        st.title("Solution Overview")
+    if page_selection == "About Us":
+        st.title("About Team")
         st.write("Describe your winning approach on this page")
+
+    if page_selection == "Information":
+        st.title("Data Science Processes")
+
+    if page_selection == "Contact Us":
+        st.title("Get in touch!") 
 
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.
