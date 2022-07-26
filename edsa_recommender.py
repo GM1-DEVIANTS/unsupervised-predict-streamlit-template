@@ -43,6 +43,7 @@ title_list = load_movie_titles('resources/data/movies.csv')
 # App declaration
 def main():
 
+    st.set_page_config(page_title="Devaints", page_icon=":tv:")
     title_logo, title = st.columns((1,4))
 
     with title_logo:
