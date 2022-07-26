@@ -20,8 +20,8 @@
 	application. You are expected to extend certain aspects of this script
     and its dependencies as part of your predict project.
 
-	For further help with the Streamlit framework, see:
-
+	For further help with the Streamlit framework, see
+    
 	https://docs.streamlit.io/en/latest/
 
 """
