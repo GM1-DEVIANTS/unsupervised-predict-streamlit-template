@@ -26,6 +26,8 @@
 
 """
 # Streamlit dependencies
+from distutils.log import info
+from nbformat import write
 import streamlit as st
 
 # Data handling dependencies
@@ -43,7 +45,7 @@ title_list = load_movie_titles('resources/data/movies.csv')
 # App declaration
 def main():
 
-    st.set_page_config(page_title="Devaints", page_icon=":tv:")
+    st.set_page_config(page_title="DEVIANTS", page_icon=":trident:")
     title_logo, title = st.columns((1,4))
 
     with title_logo:
@@ -115,86 +117,65 @@ def main():
         st.markdown("<h2 style='text-align: left; color: white;'>About The Team</h2>", unsafe_allow_html=True)
 
 
-        team_img, team_info = st.columns((1,3))
+        team_img, team_info = st.columns((2,3))
 
         with team_img:
             st.image('resources/images/team.jpeg')
         with team_info:
             st.write(
                 """
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. 
-                
-                
-                Proin nibh nisl condimentum id venenatis a condimentum. Eu nisl nunc mi
-                ipsum. Pellentesque habitant morbi tristique senectus et. Vitae tortor condimentum lacinia quis
-                vel eros donec. Tristique nulla aliquet enim 
+                Deviants: We are a team of Data Scientists that pride themselve in creating valuable insights 
+                using data. After collecting data we take it through several Data Science techniques that enable us
+                use to build and train Machine Learning models. We use these Models to provide valuable insights which is what is presented on this Movie
+                Recommendation platform. 
                 """
             )	
 
-
         st.markdown("<h2 style='text-align: center; color: orange;'>About The Platform</h2>", unsafe_allow_html=True)
-
-        # st.write("##")
-
-        project_info, project_img = st.columns((2,1))
-
-        with project_info:
-            st.write(
+        st.image('resources/images/bot.webp')
+        st.markdown("<p style='text-align: left; color: white;'>In today’s technology driven world, recommender systems are socially and economically critical to ensure that individuals can make optimised choices surrounding the content they engage with on a daily basis. One application where this is especially true is movie recommendations; where intelligent algorithms can help viewers find great titles from tens of thousands of options.</p>", unsafe_allow_html=True)
+        st.write(
                 """
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-
-
-                ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum.
-                Eu nisl nunc mi ipsum. Pellentesque habitant morbi tristique senectus et. Vitae tortor condimentum 
-                 
-
-
-                quis vel eros donec ac odio. Pretium lectus quam id leo in vitae. Egestas maecenas pharetra convallis
-                posuere. Tempor id eu nisl nunc mi. Vel turpis nunc eget lorem dolor sed viverra ipsum nunc. Nunc mi
-                ipsum faucibus vitae aliquet. Porttitor lacus luctus accumsan tortor posuere ac. Interdum
-                consectetur libero id faucibus nisl tincidunt. Lacinia quis vel eros donec ac odio.
-
-                Libero volutpat sed cras ornare arcu dui vivamus. Erat velit scelerisque in dictum non.
-                Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Quis imperdiet massa
-                tincidunt nunc pulvinar sapien et ligula. Tellus rutrum tellus pellentesque eu tincidunt
-                tortor aliquam nulla. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing
-                elit. At elementum eu facilisis sed odio morbi. Vitae purus faucibus ornare suspendisse
-                sed nisi lacus sed. Ut sem nulla pharetra diam sit amet nisl.
-
+                Our platform recommends ten movies depending on three movies a user chooses. These movies chosen either 
+                based on the pool of similar movies(Content filtering) or data from other users with similar interests (Collaborative filtering).   
                 """
-            )		
-
-        with project_img:
-            st.image('resources/images/GM1_img.png')
-            st.image('resources/images/GM1_img.png')
-
+            )
+        
     if page_selection == "Information":
 
 
-        st.markdown("<h1 style='text-align: centre; color: orange;'>Data Collection</h1>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: centre; color: white;'>Data Processing</h2>", unsafe_allow_html=True)
         collection_text, collection_img = st.columns((2,1))
         with collection_text:
             st.write(
-                """
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Ut ornare
-                lectus sit amet est placerat in egestas erat. Ultrices gravida dictum fusce ut placerat orci
-                nulla pellentesque. Non sodales neque sodales ut etiam sit. 
-                Pellentesque elit eget gravida cum
+                    """
+                    Data was collected from a very reliable Data Science platform named Kaggle. 
+                    """
+                )
 
-                
-                """
-            )
+
+            st.markdown("<p style='text-align: centre; color: white;'>This dataset consists of several million 5-star ratings obtained from users of the online MovieLens movierecommendation service. The MovieLens dataset has long been used by industry and academic researchers toimprove the performance of explicitly-based recommender systems. </p>", unsafe_allow_html=True)
+
+            st.write( 
+                    """   
+                    The data for the MovieLens dataset is maintained by the GroupLens research group in the Department of
+                    Computer Science and Engineering at the University of Minnesota. Additional movie content data was legally
+                    scraped from IMDB.
+
+                    """
+                )
+
         with collection_img:
             st.image('resources/images/kaggle1.jpg')
-        st.markdown("<h1 style='text-align: right; color: white;'>Recommender Engines</h1>", unsafe_allow_html=True)
+            st.image('resources/images/imdb.jpg')
+
+
+        st.markdown("<h2 style='text-align: center; color: white;'>Recommender Engines</h2>", unsafe_allow_html=True)
 
         st.write(
                 """
-                 lectus sit amet est placerat in egestas erat. Ultrices gravida dictum fusce ut placerat orci
-                nulla pellentesque.
+                recommendation engine is essentially a solution that allows marketers to offer their customers relevant product
+                recommendations in real-time.
                 """
             )
 
@@ -202,22 +183,63 @@ def main():
         with data_clean1:
             st.image('resources/images/recommend.jfif')
         with data_clean2:
-            st.markdown("<h2 style='text-align: center; color: black;'>Recommender types</h2>", unsafe_allow_html=True)
-            st.write("""
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Ut ornare
-                lectus sit amet est placerat in egestas erat. Ultrices gravida dictum fusce ut placerat orci
-                """)
+            st.markdown("<h2 style='text-align: center; orange: white;'>Filtering tools</h2>", unsafe_allow_html=True)
+
+
+            st.markdown("<p style='text-align: center; color: white;'>CONTENT-BASED filtering is a type of recommender system that attempts to guess what a user may like based onthat user's activity. Content-based filtering makes recommendations by using keywords and attributes assignedto objects in a database.</p>", unsafe_allow_html=True)
+         
+
+        filter0, filter1, filter2 = st.columns((1,4,2))
+
+        with filter0:
+                st.empty()        
+        with filter1:
+                st.write(
+                        """
+                        COLLABORATIVE filtering is a technique that can filter out items that a user might like on the basis of
+                        reactions by similar users.
+                        
+                        It works by searching a large group of people and finding a smaller set
+                        of users with tastes similar to a particular user.   
+                        """
+                )
+        with filter2:
+                st.image('resources/images/filtering.jpg')    
+
+        st.markdown("<p style='color: white'> These powerful data filtering tools, recommendation systems use algorithms and data analysis techniques to recommend the most relevant product/items to a particular user. </p>", unsafe_allow_html=True)        
 
         st.markdown("<h2 style='text-align: center; color: orange;'>Uses and Benefits</h2>", unsafe_allow_html=True) 
+        st.markdown("<p style='color: white'> Our platform can be used to  filter or predict the users' movie preferences based on their past choices or users with similar interests. This is beneficial since it ensures that users have the most relevant content suggested to them.</p>", unsafe_allow_html=True)              	    			
 
-        st.markdown("<p style='color: white'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Ut ornarelectus sit a</p>", unsafe_allow_html=True)              	    			
+        st.markdown("<h3 style='text-align: left; color: orange;'>Other uses for recommenders</h3>", unsafe_allow_html=True) 
+        st.image('resources/images/e-commerce.jpg')
+      
 
-        st.write("""
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Ut ornare
-                lectus sit amet est placerat in egestas erat. Ultrices gravida dictum fusce ut placerat orci
-                """) 
+        st.markdown("<h5 style='text-align: left; color: orange;'>Drive Traffic</h5>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: right; color: white;'>Through personalized email messages and targeted blasts, a recommendation engine can encourage elevated amounts of traffic to your site, thus increasing the opportunity to scoop up more data to further enrich a customer profile.</p>", unsafe_allow_html=True)        
+        
+        st.markdown("<h5 style='text-align: center; color: orange;'>Increase Number of Items per Order</h5>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: left; color: orange;'>In addition to the average order value rising, the number of items per order also typically rises when an engine is employed. When the customer is shown options that meet his or her interest, they are far more likely to add items to to their active purchase cart.</p>", unsafe_allow_html=True)        
+
+        st.markdown("<h5 style='text-align: center; color: white;'>Offer Advice and Direction</h5>", unsafe_allow_html=True)
+        other1, other2 = st.columns((1, 3))
+        with other1:
+            st.image('resources/images/bot.gif')
+        with other2:
+            st.markdown("<p style='text-align: center; color: white;'>An experienced recommendation provider like Kibo can offer advice on how to use the data collected from your recommendation engine. Acting as a partner and a consultant, the provider should have the industry know-how needed to help guide you and your ecommerce site to a prosperous future.</p>", unsafe_allow_html=True)        
+
+
+        st.markdown("<h2 style='text-align: left; color: orange;'>For more information</h2>", unsafe_allow_html=True)
+
+        info1, info2 = st.columns((4, 2)) 
+
+        with info1:
+            st.write("[Working and Advantages of a Recommendation Engine - Explained](https://medium.com/geekculture/explained-working-and-advantages-of-a-recommendation-engine-16cbff7796c)")
+            st.write("[Benefits of Recommendation Systems](https://kibocommerce.com/blog/recommendation-engine-benefits-aov/)")
+            st.write("[Streamlit](https://streamlit.io/)")
+            st.write("[Amazon Webservices hosting](https://aws.amazon.com/)")
+        with info2:    
+            st.image('resources/images/plug1.gif')
 
     if page_selection == "Contact Us":
 
