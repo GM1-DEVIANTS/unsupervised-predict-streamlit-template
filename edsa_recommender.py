@@ -105,6 +105,7 @@ def main():
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
                 except:
+                    st.snow()
                     st.error("Oops! Looks like this algorithm does't work.\
                               We'll need to fix it!")
 
